@@ -1,6 +1,52 @@
 <!DOCTYPE html><html lang="en"><head><title>a-transcluded-required-directive/a-transcluded-required-directive</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../"><meta name="groc-document-path" content="a-transcluded-required-directive/a-transcluded-required-directive"><meta name="groc-project-path" content="a-transcluded-required-directive/a-transcluded-required-directive.coffee"><meta name="groc-github-url" content="https://github.com/OlenDavis/google-maps-a-directive"><link rel="stylesheet" type="text/css" media="all" href="../assets/style.css"><script type="text/javascript" src="../assets/behavior.js"></script><body><div id="meta"><div class="file-path"><a href="https://github.com/OlenDavis/google-maps-a-directive/blob/master/a-transcluded-required-directive/a-transcluded-required-directive.coffee">a-transcluded-required-directive/a-transcluded-required-directive.coffee</a></div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><h1 id="directive-basics">Directive Basics</h1>
 
-<h2 id="a-transcluded-required-directive">A Transcluded Required Directive</h2></div></div><div class="code"><div class="wrapper"><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span> <span class="s">&#39;aModule&#39;</span><span class="p">,</span> <span class="p">[</span> <span class="s">&#39;ng&#39;</span> <span class="p">]</span> <span class="p">).</span><span class="nx">directive</span><span class="p">(</span> <span class="s">&#39;aTranscludedRequiredDirective&#39;</span><span class="p">,</span> <span class="nf">-&gt;</span>
+<h2 id="a-transcluded-required-directive">A Transcluded Required Directive</h2></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h2 id="indexhtml">index.html</h2>
+
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html ng-app="aModule"&gt;
+
+    &lt;head&gt;
+        &lt;link rel="stylesheet" href="style.css"&gt;
+        &lt;script data-require="angular.js@1.3.0-beta.19" data-semver="1.3.0-beta.19" src="https://code.angularjs.org/1.3.0-beta.19/angular.js"&gt;&lt;/script&gt;
+        &lt;script src="a-transcluded-required-directive.js"&gt;&lt;/script&gt;
+    &lt;/head&gt;
+
+    &lt;body class="less padded"&gt;
+
+        &lt;div
+            class   ="bordered more padded rounded less-b-margin"
+            ng-init ="thisMany = 1"
+        &gt;
+            &lt;div class="relative"&gt;
+                How many? {{ thisMany }}
+                &lt;input
+                    type     ="range"
+                    min      ="1"
+                    max      ="20"
+                    ng-model ="thisMany"
+                    class    ="block whole-width"
+                /&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div a-transcluded-required-directive="thisMany"&gt;
+            &lt;div
+                class    ="less padded"
+                ng-class ="{
+                    'blue-coloring': $even,
+                    'grey-coloring': $odd,
+                    't-rounded'    : $first,
+                    'b-rounded'    : $last
+                }"
+            &gt;
+                Transcluding at {{ $index }}
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+    &lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre></div></div><div class="code"><div class="wrapper"><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span> <span class="s">&#39;aModule&#39;</span><span class="p">,</span> <span class="p">[</span> <span class="s">&#39;ng&#39;</span> <span class="p">]</span> <span class="p">).</span><span class="nx">directive</span><span class="p">(</span> <span class="s">&#39;aTranscludedRequiredDirective&#39;</span><span class="p">,</span> <span class="nf">-&gt;</span>
 
   <span class="nv">scope:</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>This is just how many directives transcluding this required directive to render.</p></div></div><div class="code"><div class="wrapper">    <span class="nv">thisMany: </span><span class="s">&#39;=?aTranscludedRequiredDirective&#39;</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>This is what makes the $transclude function available to the controller.</p></div></div><div class="code"><div class="wrapper">  <span class="nv">transclude: </span><span class="kc">yes</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Note that we don't need the $attrs or controllerOrControllers 'cause <em>we're</em> not requiring
 another directive</p></div></div><div class="code"><div class="wrapper">  <span class="nv">link: </span><span class="nf">( $scope, $element ) -&gt;</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>We $watch the thisMany value cast as a number</p></div></div><div class="code"><div class="wrapper">    <span class="nx">$scope</span><span class="p">.</span><span class="nx">$watch</span> <span class="s">&#39;thisMany | number&#39;</span><span class="p">,</span> <span class="nf">( thisMany ) -&gt;</span>

@@ -1,6 +1,47 @@
 <!DOCTYPE html><html lang="en"><head><title>a-required-directive/directive-basics</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../"><meta name="groc-document-path" content="a-required-directive/directive-basics"><meta name="groc-project-path" content="a-required-directive/directive-basics.coffee"><meta name="groc-github-url" content="https://github.com/OlenDavis/google-maps-a-directive"><link rel="stylesheet" type="text/css" media="all" href="../assets/style.css"><script type="text/javascript" src="../assets/behavior.js"></script><body><div id="meta"><div class="file-path"><a href="https://github.com/OlenDavis/google-maps-a-directive/blob/master/a-required-directive/directive-basics.coffee">a-required-directive/directive-basics.coffee</a></div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><h1 id="directive-basics">Directive Basics</h1>
 
-<h2 id="a-required-directive">A Required Directive</h2></div></div><div class="code"><div class="wrapper"><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span> <span class="s">&#39;aModule&#39;</span><span class="p">,</span> <span class="p">[</span> <span class="s">&#39;ng&#39;</span> <span class="p">]</span> <span class="p">).</span><span class="nx">directive</span><span class="p">(</span> <span class="s">&#39;aDirective&#39;</span><span class="p">,</span> <span class="nf">-&gt;</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Note the isolate scope:</p></div></div><div class="code"><div class="wrapper">  <span class="nv">scope: </span><span class="p">{}</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Here, we <em>require</em> (optionally) the aRequiredDirective to be a parent of this directive:</p></div></div><div class="code"><div class="wrapper">  <span class="nv">require: </span><span class="s">&#39;^?aRequiredDirective&#39;</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Note that aRequiredDirective's controller is passed to the 4th parameter here:</p></div></div><div class="code"><div class="wrapper">  <span class="nv">link: </span><span class="nf">( $scope, $element, $attrs, controllerOrControllers ) -&gt;</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>So, we just put it on the scope for later use in the directive template.</p></div></div><div class="code"><div class="wrapper">    <span class="nv">$scope.aRequiredDirectiveController = </span><span class="nx">controllerOrControllers</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Here, note that <code>aRequiredDirectiveController.getResult()</code> evaluates to something. And for
+<h2 id="a-required-directive">A Required Directive</h2></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h2 id="indexhtml">index.html</h2>
+
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html ng-app="aModule"&gt;
+
+    &lt;head&gt;
+        &lt;link rel="stylesheet" href="style.css"&gt;
+        &lt;script data-require="angular.js@1.3.0-beta.19" data-semver="1.3.0-beta.19" src="https://code.angularjs.org/1.3.0-beta.19/angular.js"&gt;&lt;/script&gt;
+        &lt;script src="directive-basics.js"&gt;&lt;/script&gt;
+    &lt;/head&gt;
+
+    &lt;body class="less padded"&gt;
+
+        &lt;div class="bordered more padded rounded less-b-margin"&gt;
+
+            &lt;div&gt;
+                Something (for a-required-directive)
+                &lt;input ng-model="something"/&gt;
+            &lt;/div&gt;
+
+            &lt;div&gt;
+                Something added to it (by a-required-directive)
+                &lt;input ng-model="somethingAdded"/&gt;
+            &lt;/div&gt;
+
+        &lt;/div&gt;
+
+        aRequiredDirective:
+        &lt;div
+            a-required-directive
+            something       ="something"
+            something-added ="somethingAdded"
+            class           ="bordered more padded rounded less-b-margin"
+        &gt;
+            aDirective:
+            &lt;div a-directive&gt;&lt;/div&gt;
+        &lt;/div&gt;
+
+    &lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre></div></div><div class="code"><div class="wrapper"><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span> <span class="s">&#39;aModule&#39;</span><span class="p">,</span> <span class="p">[</span> <span class="s">&#39;ng&#39;</span> <span class="p">]</span> <span class="p">).</span><span class="nx">directive</span><span class="p">(</span> <span class="s">&#39;aDirective&#39;</span><span class="p">,</span> <span class="nf">-&gt;</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Note the isolate scope:</p></div></div><div class="code"><div class="wrapper">  <span class="nv">scope: </span><span class="p">{}</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Here, we <em>require</em> (optionally) the aRequiredDirective to be a parent of this directive:</p></div></div><div class="code"><div class="wrapper">  <span class="nv">require: </span><span class="s">&#39;^?aRequiredDirective&#39;</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Note that aRequiredDirective's controller is passed to the 4th parameter here:</p></div></div><div class="code"><div class="wrapper">  <span class="nv">link: </span><span class="nf">( $scope, $element, $attrs, controllerOrControllers ) -&gt;</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>So, we just put it on the scope for later use in the directive template.</p></div></div><div class="code"><div class="wrapper">    <span class="nv">$scope.aRequiredDirectiveController = </span><span class="nx">controllerOrControllers</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Here, note that <code>aRequiredDirectiveController.getResult()</code> evaluates to something. And for
 purely demonstrative purposes, <code>something</code> and <code>somethingAdded</code> are undefined (because this
 directive has an isolate scope). This is reinforce the fact that we're displaying what we're
 displaying thanks to require, not just scope inheritance.</p></div></div><div class="code"><div class="wrapper">  <span class="nv">template: </span><span class="s">&#39;&#39;&#39;</span>

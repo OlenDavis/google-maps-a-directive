@@ -1,6 +1,28 @@
 <!DOCTYPE html><html lang="en"><head><title>alert-this-and-that/alert-this-and-that</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../"><meta name="groc-document-path" content="alert-this-and-that/alert-this-and-that"><meta name="groc-project-path" content="alert-this-and-that/alert-this-and-that.coffee"><meta name="groc-github-url" content="https://github.com/OlenDavis/google-maps-a-directive"><link rel="stylesheet" type="text/css" media="all" href="../assets/style.css"><script type="text/javascript" src="../assets/behavior.js"></script><body><div id="meta"><div class="file-path"><a href="https://github.com/OlenDavis/google-maps-a-directive/blob/master/alert-this-and-that/alert-this-and-that.coffee">alert-this-and-that/alert-this-and-that.coffee</a></div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><h1 id="ngrepeat-ngreused">ngRepeat ngReused</h1>
 
-<h2 id="alert-this-and-that">alert-this-and-that</h2></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h3 id="the-regular-expressions">The Regular Expressions</h3></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Our expression will be of the form <code>_alert_this_ and _alert_that for _ng_repeat_expression_</code>. So,
+<h2 id="alert-this-and-that">alert-this-and-that</h2></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h2 id="indexhtml">index.html</h2>
+
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html ng-app="aModule"&gt;
+
+    &lt;head&gt;
+        &lt;link rel="stylesheet" href="style.css"&gt;
+        &lt;script data-require="angular.js@1.3.0-beta.19" data-semver="1.3.0-beta.19" src="https://code.angularjs.org/1.3.0-beta.19/angular.js"&gt;&lt;/script&gt;
+        &lt;script src="alert-this-and-that.js"&gt;&lt;/script&gt;
+    &lt;/head&gt;
+
+    &lt;body class="less padded"&gt;
+        &lt;div
+            class               ="bordered more padded rounded less-b-margin"
+            ng-init             ="statements = [ 'sure you do.', 'omg', 'yep', 'whaaaaaaat.', 'yee, hah.', 'er, mah, ger.' ]"
+            alert-this-and-that ="statement.toUpperCase() and statement.toLowerCase() for statement in statements"
+        &gt;
+            I do what I WANT... {{ statement }}
+        &lt;/div&gt;
+    &lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h3 id="the-regular-expressions">The Regular Expressions</h3></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Our expression will be of the form <code>_alert_this_ and _alert_that for _ng_repeat_expression_</code>. So,
 we just want a simple regular expression that matches groups for those three parts like so:</p></div></div><div class="code"><div class="wrapper"><span class="nv">alertThisAndThatRegex = </span><span class="sr">/^\s*([\s\S]+?)\s+and\s+([\s\S]+?)\s+for\s+([\s\S]+?)\s*$/</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h4 id="demystifying-ngrepeat">Demystifying ngRepeat</h4>
 
 <p><em>FYI</em> The processing of ngRepeat's expression is just applying several regular expressions in phases.</p></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>For instance, this is the regex for splitting the ngRepeat expression into its left and right sides. I.e. <code>ng-
