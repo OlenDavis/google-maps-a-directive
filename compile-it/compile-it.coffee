@@ -1,5 +1,34 @@
 # # Directive Basics
 # ## Compile It
+
+# ## index.html
+# 	<!DOCTYPE html>
+# 	<html ng-app="aModule">
+# 	
+# 		<head>
+# 			<link rel="stylesheet" href="style.css">
+# 			<script data-require="angular.js@1.3.0-beta.19" data-semver="1.3.0-beta.19" src="https://code.angularjs.org/1.3.0-beta.19/angular.js"></script>
+# 			<script src="compile-it.js"></script>
+# 		</head>
+# 	
+# 		<body class="less padded">
+# 	
+# 			<div class="bordered more padded rounded less-b-margin">
+# 				What to compile:
+# 				<textarea
+# 					ng-model ="compileThis"
+# 					class    ="rounded blue text-input block whole-width"
+# 					rows     ="10"
+# 				></textarea>
+# 			</div>
+# 	
+# 			<div compile-it="compileThis"></div>
+# 			
+# 		</body>
+# 	
+# 	</html>
+
+
 # Note here we inject $compile as a dependency for the directive itself. We could also have our
 # logic in a controller (for portability's sake primarily), and inject $compile into the controller.
 angular.module( 'aModule', [ 'ng' ] ).directive( 'compileIt', ( $compile ) ->
