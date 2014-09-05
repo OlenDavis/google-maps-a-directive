@@ -1,8 +1,33 @@
 <!DOCTYPE html><html lang="en"><head><title>compile-it/compile-it</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../"><meta name="groc-document-path" content="compile-it/compile-it"><meta name="groc-project-path" content="compile-it/compile-it.coffee"><meta name="groc-github-url" content="https://github.com/OlenDavis/google-maps-a-directive"><link rel="stylesheet" type="text/css" media="all" href="../assets/style.css"><script type="text/javascript" src="../assets/behavior.js"></script><body><div id="meta"><div class="file-path"><a href="https://github.com/OlenDavis/google-maps-a-directive/blob/master/compile-it/compile-it.coffee">compile-it/compile-it.coffee</a></div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><h1 id="directive-basics">Directive Basics</h1>
 
-<h2 id="compile-it">Compile It</h2>
+<h2 id="compile-it">Compile It</h2></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h2 id="indexhtml">index.html</h2>
 
-<p>Note here we inject $compile as a dependency for the directive itself. We could also have our
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html ng-app="aModule"&gt;
+
+    &lt;head&gt;
+        &lt;link rel="stylesheet" href="style.css"&gt;
+        &lt;script data-require="angular.js@1.3.0-beta.19" data-semver="1.3.0-beta.19" src="https://code.angularjs.org/1.3.0-beta.19/angular.js"&gt;&lt;/script&gt;
+        &lt;script src="compile-it.js"&gt;&lt;/script&gt;
+    &lt;/head&gt;
+
+    &lt;body class="less padded"&gt;
+
+        &lt;div class="bordered more padded rounded less-b-margin"&gt;
+            What to compile:
+            &lt;textarea
+                ng-model ="compileThis"
+                class    ="rounded blue text-input block whole-width"
+                rows     ="10"
+            &gt;&lt;/textarea&gt;
+        &lt;/div&gt;
+
+        &lt;div compile-it="compileThis"&gt;&lt;/div&gt;
+
+    &lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Note here we inject $compile as a dependency for the directive itself. We could also have our
 logic in a controller (for portability's sake primarily), and inject $compile into the controller.</p></div></div><div class="code"><div class="wrapper"><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span> <span class="s">&#39;aModule&#39;</span><span class="p">,</span> <span class="p">[</span> <span class="s">&#39;ng&#39;</span> <span class="p">]</span> <span class="p">).</span><span class="nx">directive</span><span class="p">(</span> <span class="s">&#39;compileIt&#39;</span><span class="p">,</span> <span class="nf">( $compile ) -&gt;</span>
   <span class="nv">scope:</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>This is the interpolated scope attribute we'll attempt to $compile and display.</p></div></div><div class="code"><div class="wrapper">    <span class="nv">compileWhat: </span><span class="s">&#39;=?compileIt&#39;</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Note that we don't need the $attrs or controllerOrControllers</p></div></div><div class="code"><div class="wrapper">  <span class="nv">link: </span><span class="nf">( $scope, $element ) -&gt;</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>So, we watch the compileIt string:</p></div></div><div class="code"><div class="wrapper">    <span class="nx">$scope</span><span class="p">.</span><span class="nx">$watch</span> <span class="s">&#39;compileWhat&#39;</span><span class="p">,</span> <span class="nf">( compileWhat ) -&gt;</span>
       <span class="k">try</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>And when it changes, we'll try to compile the thing to get its compiled link
