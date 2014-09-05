@@ -1,5 +1,4 @@
-# # Directive Basics
-# ## Compile It
+# # compile-it
 
 # ## index.html
 # 	<!DOCTYPE html>

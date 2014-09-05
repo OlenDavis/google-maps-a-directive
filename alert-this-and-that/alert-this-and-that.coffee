@@ -1,5 +1,4 @@
-# # ngRepeat ngReused
-# ## alert-this-and-that
+# # alert-this-and-that
 
 # ## index.html
 # 	<!DOCTYPE html>
