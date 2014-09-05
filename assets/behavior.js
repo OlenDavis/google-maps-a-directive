@@ -32,6 +32,112 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
       "depth": 1,
       "outline": []
     }, {
+      "type": "file",
+      "data": {
+        "language": {
+          "nameMatchers": [".coffee", "Cakefile"],
+          "pygmentsLexer": "coffee-script",
+          "multiLineComment": ["###*", " *", " ###", "###", "#", "###", "###*", "#", "###"],
+          "strictMultiLineEnd": false,
+          "singleLineComment": ["#"],
+          "ignorePrefix": "}",
+          "foldPrefix": "^",
+          "name": "CoffeeScript"
+        },
+        "sourcePath": "/Users/olendavis/Development/google-maps-a-directive/a-directive/a-directive.coffee",
+        "projectPath": "a-directive/a-directive.coffee",
+        "targetPath": "a-directive",
+        "pageTitle": "a-directive",
+        "firstHeader": {
+          "type": "heading",
+          "data": {
+            "level": 1,
+            "title": "a-directive",
+            "slug": "a-directive",
+            "isFileHeader": true
+          },
+          "depth": 1,
+          "children": [
+            {
+              "type": "heading",
+              "data": {
+                "level": 2,
+                "title": "index.html",
+                "slug": "indexhtml"
+              },
+              "depth": 2
+            }, {
+              "type": "heading",
+              "data": {
+                "level": 2,
+                "title": "The \"Directive Definition Object\"",
+                "slug": "the-directive-definition-object"
+              },
+              "depth": 2
+            }, {
+              "type": "heading",
+              "data": {
+                "level": 2,
+                "title": "The Directive's $scope",
+                "slug": "the-directives-scope"
+              },
+              "depth": 2,
+              "children": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "2 Ways:",
+                    "slug": "2-ways"
+                  },
+                  "depth": 3
+                }
+              ]
+            }
+          ]
+        },
+        "title": "a-directive"
+      },
+      "depth": 1,
+      "outline": [
+        {
+          "type": "heading",
+          "data": {
+            "level": 2,
+            "title": "index.html",
+            "slug": "indexhtml"
+          },
+          "depth": 2
+        }, {
+          "type": "heading",
+          "data": {
+            "level": 2,
+            "title": "The \"Directive Definition Object\"",
+            "slug": "the-directive-definition-object"
+          },
+          "depth": 2
+        }, {
+          "type": "heading",
+          "data": {
+            "level": 2,
+            "title": "The Directive's $scope",
+            "slug": "the-directives-scope"
+          },
+          "depth": 2,
+          "children": [
+            {
+              "type": "heading",
+              "data": {
+                "level": 3,
+                "title": "2 Ways:",
+                "slug": "2-ways"
+              },
+              "depth": 3
+            }
+          ]
+        }
+      ]
+    }, {
       "type": "folder",
       "data": {
         "path": "a-required-directive",
@@ -52,29 +158,21 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "CoffeeScript"
             },
-            "sourcePath": "/Users/olendavis/Development/google-maps-a-directive/a-required-directive/directive-basics.coffee",
-            "projectPath": "a-required-directive/directive-basics.coffee",
-            "targetPath": "a-required-directive/directive-basics",
-            "pageTitle": "a-required-directive/directive-basics",
+            "sourcePath": "/Users/olendavis/Development/google-maps-a-directive/a-required-directive/a-required-directive.coffee",
+            "projectPath": "a-required-directive/a-required-directive.coffee",
+            "targetPath": "a-required-directive/a-required-directive",
+            "pageTitle": "a-required-directive/a-required-directive",
             "firstHeader": {
               "type": "heading",
               "data": {
                 "level": 1,
-                "title": "Directive Basics",
-                "slug": "directive-basics",
+                "title": "a-required-directive",
+                "slug": "a-required-directive",
                 "isFileHeader": true
               },
               "depth": 1,
               "children": [
                 {
-                  "type": "heading",
-                  "data": {
-                    "level": 2,
-                    "title": "A Required Directive",
-                    "slug": "a-required-directive"
-                  },
-                  "depth": 2
-                }, {
                   "type": "heading",
                   "data": {
                     "level": 2,
@@ -85,19 +183,11 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 }
               ]
             },
-            "title": "Directive Basics"
+            "title": "a-required-directive"
           },
           "depth": 2,
           "outline": [
             {
-              "type": "heading",
-              "data": {
-                "level": 2,
-                "title": "A Required Directive",
-                "slug": "a-required-directive"
-              },
-              "depth": 2
-            }, {
               "type": "heading",
               "data": {
                 "level": 2,
@@ -138,21 +228,13 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "type": "heading",
               "data": {
                 "level": 1,
-                "title": "Directive Basics",
-                "slug": "directive-basics",
+                "title": "a-transcluded-required-directive",
+                "slug": "a-transcluded-required-directive",
                 "isFileHeader": true
               },
               "depth": 1,
               "children": [
                 {
-                  "type": "heading",
-                  "data": {
-                    "level": 2,
-                    "title": "A Transcluded Required Directive",
-                    "slug": "a-transcluded-required-directive"
-                  },
-                  "depth": 2
-                }, {
                   "type": "heading",
                   "data": {
                     "level": 2,
@@ -163,19 +245,11 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 }
               ]
             },
-            "title": "Directive Basics"
+            "title": "a-transcluded-required-directive"
           },
           "depth": 2,
           "outline": [
             {
-              "type": "heading",
-              "data": {
-                "level": 2,
-                "title": "A Transcluded Required Directive",
-                "slug": "a-transcluded-required-directive"
-              },
-              "depth": 2
-            }, {
               "type": "heading",
               "data": {
                 "level": 2,
@@ -216,21 +290,13 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "type": "heading",
               "data": {
                 "level": 1,
-                "title": "ngRepeat ngReused",
-                "slug": "ngrepeat-ngreused",
+                "title": "alert-this-and-that",
+                "slug": "alert-this-and-that",
                 "isFileHeader": true
               },
               "depth": 1,
               "children": [
                 {
-                  "type": "heading",
-                  "data": {
-                    "level": 2,
-                    "title": "alert-this-and-that",
-                    "slug": "alert-this-and-that"
-                  },
-                  "depth": 2
-                }, {
                   "type": "heading",
                   "data": {
                     "level": 2,
@@ -263,19 +329,11 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 }
               ]
             },
-            "title": "ngRepeat ngReused"
+            "title": "alert-this-and-that"
           },
           "depth": 2,
           "outline": [
             {
-              "type": "heading",
-              "data": {
-                "level": 2,
-                "title": "alert-this-and-that",
-                "slug": "alert-this-and-that"
-              },
-              "depth": 2
-            }, {
               "type": "heading",
               "data": {
                 "level": 2,
@@ -338,21 +396,13 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "type": "heading",
               "data": {
                 "level": 1,
-                "title": "Directive Basics",
-                "slug": "directive-basics",
+                "title": "compile-it",
+                "slug": "compile-it",
                 "isFileHeader": true
               },
               "depth": 1,
               "children": [
                 {
-                  "type": "heading",
-                  "data": {
-                    "level": 2,
-                    "title": "Compile It",
-                    "slug": "compile-it"
-                  },
-                  "depth": 2
-                }, {
                   "type": "heading",
                   "data": {
                     "level": 2,
@@ -363,7 +413,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 }
               ]
             },
-            "title": "Directive Basics"
+            "title": "compile-it"
           },
           "depth": 2,
           "outline": [
@@ -371,124 +421,10 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "type": "heading",
               "data": {
                 "level": 2,
-                "title": "Compile It",
-                "slug": "compile-it"
-              },
-              "depth": 2
-            }, {
-              "type": "heading",
-              "data": {
-                "level": 2,
                 "title": "index.html",
                 "slug": "indexhtml"
               },
               "depth": 2
-            }
-          ]
-        }
-      ]
-    }, {
-      "type": "file",
-      "data": {
-        "language": {
-          "nameMatchers": [".coffee", "Cakefile"],
-          "pygmentsLexer": "coffee-script",
-          "multiLineComment": ["###*", " *", " ###", "###", "#", "###", "###*", "#", "###"],
-          "strictMultiLineEnd": false,
-          "singleLineComment": ["#"],
-          "ignorePrefix": "}",
-          "foldPrefix": "^",
-          "name": "CoffeeScript"
-        },
-        "sourcePath": "/Users/olendavis/Development/google-maps-a-directive/a-directive/directive-basics.coffee",
-        "projectPath": "a-directive/directive-basics.coffee",
-        "targetPath": "directive-basics",
-        "pageTitle": "directive-basics",
-        "firstHeader": {
-          "type": "heading",
-          "data": {
-            "level": 1,
-            "title": "Directive Basics",
-            "slug": "directive-basics",
-            "isFileHeader": true
-          },
-          "depth": 1,
-          "children": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 2,
-                "title": "index.html",
-                "slug": "indexhtml"
-              },
-              "depth": 2
-            }, {
-              "type": "heading",
-              "data": {
-                "level": 2,
-                "title": "The \"Directive Definition Object\"",
-                "slug": "the-directive-definition-object"
-              },
-              "depth": 2
-            }, {
-              "type": "heading",
-              "data": {
-                "level": 2,
-                "title": "The Directive's $scope",
-                "slug": "the-directives-scope"
-              },
-              "depth": 2,
-              "children": [
-                {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "2 Ways:",
-                    "slug": "2-ways"
-                  },
-                  "depth": 3
-                }
-              ]
-            }
-          ]
-        },
-        "title": "Directive Basics"
-      },
-      "depth": 1,
-      "outline": [
-        {
-          "type": "heading",
-          "data": {
-            "level": 2,
-            "title": "index.html",
-            "slug": "indexhtml"
-          },
-          "depth": 2
-        }, {
-          "type": "heading",
-          "data": {
-            "level": 2,
-            "title": "The \"Directive Definition Object\"",
-            "slug": "the-directive-definition-object"
-          },
-          "depth": 2
-        }, {
-          "type": "heading",
-          "data": {
-            "level": 2,
-            "title": "The Directive's $scope",
-            "slug": "the-directives-scope"
-          },
-          "depth": 2,
-          "children": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 3,
-                "title": "2 Ways:",
-                "slug": "2-ways"
-              },
-              "depth": 3
             }
           ]
         }
