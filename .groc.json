@@ -1,0 +1,11 @@
+{
+  "glob": [
+  	"README.md",
+  	"a-directive/**/*",
+  	"a-required-directive/**/*",
+  	"a-transcluded-required-directive/**/*",
+  	"alert-this-and-that/**/*",
+  	"compile-it/**/*"
+  ],
+  "github": true
+}
