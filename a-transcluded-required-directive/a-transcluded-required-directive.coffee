@@ -1,5 +1,52 @@
 # # Directive Basics
 # ## A Transcluded Required Directive
+
+# ## index.html
+# 	<!DOCTYPE html>
+# 	<html ng-app="aModule">
+# 	
+# 		<head>
+# 			<link rel="stylesheet" href="style.css">
+# 			<script data-require="angular.js@1.3.0-beta.19" data-semver="1.3.0-beta.19" src="https://code.angularjs.org/1.3.0-beta.19/angular.js"></script>
+# 			<script src="a-transcluded-required-directive.js"></script>
+# 		</head>
+# 	
+# 		<body class="less padded">
+# 	
+# 			<div
+# 				class   ="bordered more padded rounded less-b-margin"
+# 				ng-init ="thisMany = 1"
+# 			>
+# 				<div class="relative">
+# 					How many? {{ thisMany }}
+# 					<input
+# 						type     ="range"
+# 						min      ="1"
+# 						max      ="20"
+# 						ng-model ="thisMany"
+# 						class    ="block whole-width"
+# 					/>
+# 				</div>
+# 			</div>
+# 	
+# 			<div a-transcluded-required-directive="thisMany">
+# 				<div
+# 					class    ="less padded"
+# 					ng-class ="{
+# 						'blue-coloring': $even,
+# 						'grey-coloring': $odd,
+# 						't-rounded'    : $first,
+# 						'b-rounded'    : $last
+# 					}"
+# 				>
+# 					Transcluding at {{ $index }}
+# 				</div>
+# 			</div>
+# 			
+# 		</body>
+# 	
+# 	</html>
+
 angular.module( 'aModule', [ 'ng' ] ).directive( 'aTranscludedRequiredDirective', ->
 
 	scope:

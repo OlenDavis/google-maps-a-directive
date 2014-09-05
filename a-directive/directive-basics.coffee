@@ -1,4 +1,23 @@
 # # Directive Basics
+
+# ## index.html
+# 	<!DOCTYPE html>
+# 	<html ng-app="aModule">
+# 	
+# 		<head>
+# 			<script data-require="angular.js@1.3.0-beta.19" data-semver="1.3.0-beta.19" src="https://code.angularjs.org/1.3.0-beta.19/angular.js"></script>
+# 			<script src="directive-basics.js"></script>
+# 		</head>
+# 	
+# 		<body>
+# 			<div
+# 				a-directive
+# 				two-way-bound="toThis"
+# 			></div>
+# 		</body>
+# 	
+# 	</html>
+
 # How a directive is made:
 angular.module( 'aModule', [ 'ng' ] ).directive 'aDirective', ->
 	# ## The "Directive Definition Object"

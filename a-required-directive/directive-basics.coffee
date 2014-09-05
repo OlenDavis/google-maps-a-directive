@@ -1,5 +1,47 @@
 # # Directive Basics
 # ## A Required Directive
+
+# ## index.html
+# 	<!DOCTYPE html>
+# 	<html ng-app="aModule">
+# 	
+# 		<head>
+# 			<link rel="stylesheet" href="style.css">
+# 			<script data-require="angular.js@1.3.0-beta.19" data-semver="1.3.0-beta.19" src="https://code.angularjs.org/1.3.0-beta.19/angular.js"></script>
+# 			<script src="directive-basics.js"></script>
+# 		</head>
+# 	
+# 		<body class="less padded">
+# 	
+# 			<div class="bordered more padded rounded less-b-margin">
+# 	
+# 				<div>
+# 					Something (for a-required-directive)
+# 					<input ng-model="something"/>
+# 				</div>
+# 	
+# 				<div>
+# 					Something added to it (by a-required-directive)
+# 					<input ng-model="somethingAdded"/>
+# 				</div>
+# 	
+# 			</div>
+# 	
+# 			aRequiredDirective:
+# 			<div
+# 				a-required-directive
+# 				something       ="something"
+# 				something-added ="somethingAdded"
+# 				class           ="bordered more padded rounded less-b-margin"
+# 			>
+# 				aDirective:
+# 				<div a-directive></div>
+# 			</div>
+# 			
+# 		</body>
+# 	
+# 	</html>
+
 angular.module( 'aModule', [ 'ng' ] ).directive( 'aDirective', ->
 	# Note the isolate scope:
 	scope: {}

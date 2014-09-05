@@ -1,6 +1,29 @@
 # # ngRepeat ngReused
 # ## alert-this-and-that
 
+# ## index.html
+# 	<!DOCTYPE html>
+# 	<html ng-app="aModule">
+# 	
+# 		<head>
+# 			<link rel="stylesheet" href="style.css">
+# 			<script data-require="angular.js@1.3.0-beta.19" data-semver="1.3.0-beta.19" src="https://code.angularjs.org/1.3.0-beta.19/angular.js"></script>
+# 			<script src="alert-this-and-that.js"></script>
+# 		</head>
+# 	
+# 		<body class="less padded">
+# 			<div
+# 				class               ="bordered more padded rounded less-b-margin"
+# 				ng-init             ="statements = [ 'sure you do.', 'omg', 'yep', 'whaaaaaaat.', 'yee, hah.', 'er, mah, ger.' ]"
+# 				alert-this-and-that ="statement.toUpperCase() and statement.toLowerCase() for statement in statements"
+# 			>
+# 				I do what I WANT... {{ statement }}
+# 			</div>
+# 		</body>
+# 	
+# 	</html>
+
+
 # ### The Regular Expressions
 
 # Our expression will be of the form `_alert_this_ and _alert_that for _ng_repeat_expression_`. So,
