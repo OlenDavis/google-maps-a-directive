@@ -1,0 +1,54 @@
+<!DOCTYPE html><html lang="en"><head><title>compile-it/compile-it</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../"><meta name="groc-document-path" content="compile-it/compile-it"><meta name="groc-project-path" content="compile-it/compile-it.coffee"><meta name="groc-github-url" content="https://github.com/OlenDavis/google-maps-a-directive"><link rel="stylesheet" type="text/css" media="all" href="../assets/style.css"><script type="text/javascript" src="../assets/behavior.js"></script><body><div id="meta"><div class="file-path"><a href="https://github.com/OlenDavis/google-maps-a-directive/blob/master/compile-it/compile-it.coffee">compile-it/compile-it.coffee</a></div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><h1 id="directive-basics">Directive Basics</h1>
+
+<h2 id="compile-it">Compile It</h2>
+
+<p>Note here we inject $compile as a dependency for the directive itself. We could also have our
+logic in a controller (for portability's sake primarily), and inject $compile into the controller.</p></div></div><div class="code"><div class="wrapper"><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span> <span class="s">&#39;aModule&#39;</span><span class="p">,</span> <span class="p">[</span> <span class="s">&#39;ng&#39;</span> <span class="p">]</span> <span class="p">).</span><span class="nx">directive</span><span class="p">(</span> <span class="s">&#39;compileIt&#39;</span><span class="p">,</span> <span class="nf">( $compile ) -&gt;</span>
+  <span class="nv">scope:</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>This is the interpolated scope attribute we'll attempt to $compile and display.</p></div></div><div class="code"><div class="wrapper">    <span class="nv">compileWhat: </span><span class="s">&#39;=?compileIt&#39;</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Note that we don't need the $attrs or controllerOrControllers</p></div></div><div class="code"><div class="wrapper">  <span class="nv">link: </span><span class="nf">( $scope, $element ) -&gt;</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>So, we watch the compileIt string:</p></div></div><div class="code"><div class="wrapper">    <span class="nx">$scope</span><span class="p">.</span><span class="nx">$watch</span> <span class="s">&#39;compileWhat&#39;</span><span class="p">,</span> <span class="nf">( compileWhat ) -&gt;</span>
+      <span class="k">try</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>And when it changes, we'll try to compile the thing to get its compiled link
+function and put it on the scope:</p></div></div><div class="code"><div class="wrapper">        <span class="nv">$scope.compiledLinkFunction = </span><span class="nx">$compile</span> <span class="nx">compileWhat</span>
+      <span class="k">catch</span> <span class="nx">e</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>And if compilation fails, we'll unset that function on the scope</p></div></div><div class="code"><div class="wrapper">        <span class="nv">$scope.compiledLinkFunction = </span><span class="kc">null</span>
+
+    <span class="nx">$scope</span><span class="p">.</span><span class="nx">$watchGroup</span> <span class="p">[</span> <span class="s">&#39;compiledLinkFunction&#39;</span><span class="p">,</span> <span class="s">&#39;compileWhat&#39;</span> <span class="p">],</span> <span class="nf">( args ) -&gt;</span>
+      <span class="p">[</span> <span class="nx">compiledLinkFunction</span><span class="p">,</span> <span class="nx">compileWhat</span> <span class="p">]</span> <span class="o">=</span> <span class="nx">args</span>
+
+      <span class="k">unless</span> <span class="nx">compiledLinkFunction</span><span class="o">?</span> <span class="o">and</span> <span class="nx">compileWhat</span><span class="o">?</span>
+        <span class="nv">$scope.whatCompiled = </span><span class="kc">null</span>
+      <span class="k">else</span>
+        <span class="k">try</span>
+          <span class="nx">$scope</span><span class="p">.</span><span class="nx">compiledLinkFunction</span> <span class="nx">$scope</span><span class="p">,</span> <span class="nf">( whatCompiled ) -&gt;</span>
+            <span class="nv">$scope.whatCompiled = </span><span class="nx">whatCompiled</span>
+        <span class="k">catch</span> <span class="nx">e</span>
+          <span class="nv">$scope.whatCompiled = </span><span class="kc">null</span>
+
+
+    <span class="nv">$scope.compileIt = </span><span class="nf">-&gt;</span>
+      <span class="k">return</span> <span class="k">unless</span> <span class="nx">$scope</span><span class="p">.</span><span class="nx">compiledLinkFunction</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Here, we want to both display the un-compiled template string as HTML, and if it was able to
+be compiled, give the user a button to compile the template and show them the havok they've
+just wrot.</p></div></div><div class="code"><div class="wrapper">  <span class="nv">template: </span><span class="s">&#39;&#39;&#39;</span>
+<span class="s">    &lt;div class=&quot;bordered rounded more padded&quot;&gt;</span>
+<span class="s">      </span>
+<span class="s">      &lt;div ng-if=&quot;compileWhat &amp;&amp; ! compiledLinkFunction&quot;&gt;</span>
+<span class="s">        Can&#39;t compile it:</span>
+<span class="s">        &lt;div class=&quot;bordered rounded less padded b-margin&quot;&gt;</span>
+<span class="s">          {{ compileWhat }}</span>
+<span class="s">        &lt;/div&gt;</span>
+<span class="s">      &lt;/div&gt;</span>
+<span class="s">      </span>
+<span class="s">      &lt;div ng-if=&quot;whatCompiled&quot;&gt;</span>
+<span class="s">        What compiled:</span>
+<span class="s">        &lt;div class=&quot;bordered rounded less padded t-margin&quot;&gt;</span>
+<span class="s">          &lt;div replace-with=&quot;whatCompiled&quot;&gt;&lt;/div&gt;</span>
+<span class="s">        &lt;/div&gt;</span>
+<span class="s">      &lt;/div&gt;</span>
+
+<span class="s">    &lt;/div&gt;</span>
+<span class="s">  &#39;&#39;&#39;</span>
+<span class="p">).</span><span class="nx">directive</span> <span class="s">&#39;replaceWith&#39;</span><span class="p">,</span> <span class="nf">-&gt;</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p><em>Extra:</em> This is just a little directive to put an element onto the page without resorting to
+too much jQLite hackery.</p></div></div><div class="code"><div class="wrapper">  <span class="nv">scope: replaceWith: </span><span class="s">&#39;=?&#39;</span>
+
+  <span class="nv">link: </span><span class="nf">( $scope, $element ) -&gt;</span>
+    <span class="nx">$scope</span><span class="p">.</span><span class="nx">$watch</span> <span class="s">&#39;replaceWith&#39;</span><span class="p">,</span> <span class="nf">( replaceWith ) -&gt;</span>
+      <span class="nx">$element</span><span class="p">.</span><span class="nx">html</span> <span class="s">&#39;&#39;</span>
+      <span class="k">if</span> <span class="nx">replaceWith</span><span class="o">?</span>
+        <span class="nx">$element</span><span class="p">.</span><span class="nx">append</span> <span class="nx">replaceWith</span> </div></div></div></div></body></html>
